@@ -4,6 +4,7 @@ const app = express()
 
 app.use(indexRotas);
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }))
 
 
 module.exports = app;
