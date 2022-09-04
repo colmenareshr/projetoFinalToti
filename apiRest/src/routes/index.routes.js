@@ -4,7 +4,7 @@ const Produto = require('../models/Produto')
 const router = Router()
 
 //Liste todos os produtos
-router.get('/api/cachorros/brinquedos', async (req, res) =>{
+router.get('/api/produtos', async (req, res) =>{
   try {
     const produtos = await Produto.find()
     res.status(200).json(produtos)
@@ -15,21 +15,16 @@ router.get('/api/cachorros/brinquedos', async (req, res) =>{
   }
   
 })
-
 //liste um produto só
-router.get('/api/cachorros/brinquedos/:id', (req, res) => {
-  const id = Number(req.params.id)
-  const brinquedo = brinquedos.find(brinquedo => brinquedo.id === id)
-  try {
-    if (brinquedo) {
-      res.status(200).json(brinquedo)
-    }else{
-      res.status(404).end()
-    }
-  } catch (error) {
-    console.log(error);
-  }
-
+router.get('/api/produtos/:id', async (req, res) => {
+  const { id } = req.params
+  const produtos =  await Produto.findById(id)
+try {
+  res.status(200).json(produtos)
+} catch (error) {
+  console.error(error);
+  res.status(400).end()
+}
 })
 
 //Adicionar um novo produto
