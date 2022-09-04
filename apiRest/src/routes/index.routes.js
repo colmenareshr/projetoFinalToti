@@ -1,17 +1,16 @@
 const Router = require('express');
+const Produto = require('../models/Produto')
 
 const router = Router()
 
 //Liste todos os produtos
-router.get('/api/cachorros/brinquedos', (req, res) =>{
+router.get('/api/cachorros/brinquedos', async (req, res) =>{
   try {
-    if (brinquedos) {
-      res.status(200).json(brinquedos)
-      
-    } else {
-      res.status(404).end()
-    }
+    const produtos = await Produto.find()
+    res.status(200).json(produtos)
+    console.log(produtos);
   } catch (error) {
+    res.status(500).end()
   console.log('Consulta inválida');  
   }
   
@@ -34,7 +33,11 @@ router.get('/api/cachorros/brinquedos/:id', (req, res) => {
 })
 
 //Adicionar um novo produto
-
+router.post('/api/cachorros/brinquedo', async (req, res) =>{
+  // const produto = Produto(req.body)
+  const produtoSaved = Produto.save()
+  console.log(produtoSaved);
+})
 //Atualizar um produto
 
 //Eliminar um produto
