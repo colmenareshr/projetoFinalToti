@@ -6,8 +6,4 @@ db.connect('mongodb+srv://HcolmDev:senha.123@petshopdb.c0njgva.mongodb.net/?retr
       }).catch(err =>   {
         console.error(err)
       })
-
-
-
-
 module.exports = db;
