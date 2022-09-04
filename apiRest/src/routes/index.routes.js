@@ -36,9 +36,9 @@ router.post('/api/cachorros/brinquedo', async (req, res) =>{
 //Atualizar um produto
 
 //Eliminar um produto
-router.delete('/api/cachorros/brinquedos/:id', (req, res) => {
-  const id = Number(req.params.id)
-  brinquedos = brinquedos.filter(brinquedo => brinquedo.id !== id)
+router.delete('/api/produtos/:id', async (req, res) => {
+  const { id } = req.params
+  await Produto.findByIdAndDelete(id)
   res.status(204).end()
 
 })
