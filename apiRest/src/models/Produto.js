@@ -4,31 +4,31 @@ const {Schema, model} = mongoose;
 const produtoSchema= new Schema({
    categoria:{
       type: String,
-      require: true,
+      required: true,
       trim: true
    },
    titulo:{
       type: String,
-      require: true,
+      required: true,
       unique: true,
       trim: true
    },
    descripcao:{
       type:String,
-      require: true,
+      required: true,
    }, 
    valor:{
       type: Number,
-      require: true
+      required: true
       
    } 
    
 }, {
-   timestamps: true,
    versionKey: false
 })
 
 const Produto = model('Produto', produtoSchema)
+module.exports= Produto;
 
 // const produto = new Produto({
 //    categoria: 'Racoes',
@@ -46,4 +46,3 @@ const Produto = model('Produto', produtoSchema)
 //       console.error(err);
 //    })
    
-module.exports= Produto;
