@@ -1,6 +1,8 @@
 const db = require('mongoose')
+require('dotenv').config()
 
-db.connect('mongodb+srv://HcolmDev:senha.123@petshopdb.c0njgva.mongodb.net/?retryWrites=true&w=majority')
+
+db.connect(process.env.MONGODB_URI)
       .then(()=>{
         console.log('Conectado DB');
       }).catch(err =>   {

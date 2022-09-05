@@ -23,7 +23,7 @@ router.get('/api/produtos/:id', async (req, res) => {
   } 
 })
 //Adicionar um novo produto
-router.post('/api/cachorros/brinquedo', (req, res) =>{
+router.post('/produtos', (req, res) =>{
   const produto = Produto(req.body)
   const produtoSaved = Produto.save()
   console.log(produtoSaved);
