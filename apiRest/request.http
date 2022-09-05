@@ -3,13 +3,16 @@ Content-Type: application/json
 
 {
   "categoria": "Racoes",
-  "titulo": "Grand Cachorro",
+  "titulo": "Grand Plus Cachorro",
   "descripcao": "Racoes para chachorro adulto",
   "valor": 78
 }
 
 ###
-DELETE http://localhost:3000/api/produtos/6316720748394b1976c9df53 HTTP/1.1
+DELETE http://localhost:3000/api/produtos/63151326700d2f3c387ac2fe HTTP/1.1
 
 ###
-GET http://localhost:3000/api/produtos/63151326700d2f3c387ac2fe HTTP/1.1
+GET http://localhost:3000/api/produtos/63151329cd9c6f4ff048a84e HTTP/1.1
+
+###
+GET http://localhost:3000/api/produtos/ HTTP/1.1
