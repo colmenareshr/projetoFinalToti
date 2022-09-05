@@ -26,7 +26,6 @@ try {
   res.status(400).end()
 }
 })
-
 //Adicionar um novo produto
 router.post('/api/cachorros/brinquedo', async (req, res) =>{
   // const produto = Produto(req.body)
@@ -40,7 +39,6 @@ router.delete('/api/produtos/:id', async (req, res) => {
   const { id } = req.params
   await Produto.findByIdAndDelete(id)
   res.status(204).end()
-
 })
 
 module.exports = router;
