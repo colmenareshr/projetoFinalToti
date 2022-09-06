@@ -28,7 +28,14 @@ router.post('/api/produtos',  (req, res) =>{
 })
 
 //Atualizar um produto
-
+router.put('/api/produtos/:id', (req, res) =>{
+  const { id } = req.params
+  const { categoria, titulo, descripcao, valor, url_img } = req.body
+  produtoSchema
+  .findByIdAndUpdate({ _id: id }, { $set:{categoria, titulo, descripcao, valor, url_img} })
+  .then((dados)=> res.status(200).json(dados))
+  .catch((err)=> res.status(400).json({ menssage: err }).end())
+})
 //Eliminar um produto
 router.delete('/api/produtos/:id', (req, res) => {
   const { id } = req.params
