@@ -21,7 +21,11 @@ const produtoSchema= new Schema({
       type: Number,
       required: true
       
-   } 
+   },
+   url_image:{
+      type: String,
+      required: true,
+   }
    
 }, {
    versionKey: false
